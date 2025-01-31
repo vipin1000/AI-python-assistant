@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 # Define the Hugging Face API URL and your API key
 HUGGINGFACE_API_URL = "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.3"  # The model URL
-API_KEY = "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"  # Replace with your Hugging Face API key
+API_KEY = "xxxxxxxxxxxxxxxxxxxxx"  # Replace with your Hugging Face API key
 
 def get_chatbot_response(prompt):
     headers = {
