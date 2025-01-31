@@ -1,0 +1,99 @@
+/* General styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e0f7fa; /* Light blue background */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 60%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #004d40; /* Navy blue */
+    margin-bottom: 20px;
+}
+
+.chat-box {
+    height: 400px;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #f1f8e9; /* Light background for chat section */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 2px solid #004d40; /* Navy blue border */
+}
+
+.message {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    max-width: 70%;
+}
+
+.user-message {
+    background-color: #80deea; /* Light blue message bubble */
+    margin-left: auto;
+    text-align: right;
+}
+
+.bot-message {
+    background-color: #004d40; /* Navy blue message bubble */
+    color: white;
+    margin-right: auto;
+}
+
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+textarea {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #004d40;
+    border-radius: 5px;
+    font-size: 14px;
+    resize: none;
+}
+
+button {
+    background-color: #004d40; /* Navy blue button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #00332e; /* Darker navy blue on hover */
+}
+
+.clear-chat-btn {
+    background-color: #ff5722; /* Orange button for clear chat */
+    margin-left: 20px;
+}
+
+.clear-chat-btn:hover {
+    background-color: #e64a19; /* Darker orange on hover */
+}
+
+.response {
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #e0f7fa;
+    border-radius: 8px;
+    border: 2px solid #004d40;
+    font-family: monospace;
+}
