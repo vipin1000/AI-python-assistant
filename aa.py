@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 # Define the Hugging Face API URL and your API key
 HUGGINGFACE_API_URL = "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.3"  # The model URL
-API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxx"  # Replace with your Hugging Face API key
+API_KEY = "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"  # Replace with your Hugging Face API key
 
 def get_chatbot_response(prompt):
     headers = {
@@ -21,7 +21,7 @@ def get_chatbot_response(prompt):
 4. **Respond confidently and professionally**, with a helpful and friendly tone, keeping the conversation educational yet approachable.
 5. **Help debug and solve coding problems** when users share error messages or describe issues in their code.
 6. **only generate response for python related problems** if you find that the user input a query that does not seem like related to python just generate "can only generate response for python related queries"
-
+7.** Add ssome emoji to make it a fun conversation**
 For example:
 - If the user asks how to handle file I/O in Python, you would explain how to read and write files in Python, provide an example of code, and explain each step of the process.
 - If the user asks for help with a Python bug, you would help debug the issue, explaining what went wrong and how to fix it.
