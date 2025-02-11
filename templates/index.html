@@ -1,31 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Assistant Chatbot</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
     <div class="container">
         <h1>Code Assistant Chatbot</h1>
-        
+
         <!-- Chat section -->
         <div class="chat-box" id="chat-box"></div>
 
         <!-- Input form -->
-        <div class="input-container">
-            <textarea id="user_input" placeholder="Ask me to write Python code..." rows="3" required></textarea>
-            <button type="submit" id="submit-btn">Send</button>
-            <button type="button" id="clear-btn" class="clear-chat-btn">Clear Chat</button>
-        </div>
+        <form id="chat-form" action="#" method="POST">
+            <div class="input-container">
+                <textarea id="user_input" placeholder="Ask me to write Python code..." rows="3" required></textarea>
+                <button type="submit" id="submit-btn">Send</button>
+            </div>
+        </form>
+
+        <!-- Clear button -->
+        <button type="button" id="clear-btn" class="clear-chat-btn">Clear Chat</button>
 
         <!-- Response from bot -->
         <div id="response" class="response"></div>
     </div>
 
     <script>
-        document.getElementById('submit-btn').addEventListener('click', function(e) {
+        // Function to handle sending messages
+        document.getElementById('submit-btn').addEventListener('click', function (e) {
             e.preventDefault();
 
             const userInput = document.getElementById('user_input').value;
@@ -46,13 +53,18 @@
                     'user_input': userInput
                 })
             })
-            .then(response => response.json())
-            .then(data => {
-                appendMessage(data.response, 'bot');
-            })
-            .catch(error => {
-                appendMessage("Error: " + error, 'bot');
-            });
+                .then(response => response.json())
+                .then(data => {
+                    // Append bot response or error
+                    if (data.response) {
+                        appendMessage(data.response, 'bot');
+                    } else {
+                        appendMessage("Sorry, something went wrong.", 'bot');
+                    }
+                })
+                .catch(error => {
+                    appendMessage("Error: " + error, 'bot');
+                });
 
             // Clear the input field
             document.getElementById('user_input').value = "";
@@ -68,16 +80,20 @@
             } else {
                 messageElement.classList.add('bot-message');
             }
-            messageElement.textContent = message;
+
+            // Preserve newlines in the message
+            messageElement.innerHTML = message.replace(/\n/g, '<br>');
+
             chatBox.appendChild(messageElement);
             chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
         }
 
         // Clear the chat when the 'Clear Chat' button is clicked
-        document.getElementById('clear-btn').addEventListener('click', function() {
+        document.getElementById('clear-btn').addEventListener('click', function () {
             document.getElementById('chat-box').innerHTML = ""; // Clear the chat messages
             document.getElementById('response').innerHTML = ""; // Clear the response section
         });
     </script>
 </body>
+
 </html>

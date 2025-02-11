@@ -1,5 +1,6 @@
 import requests
 from flask import Flask, render_template, request, jsonify
+import json  # Import json module for formatting the output
 
 app = Flask(__name__)
 
@@ -21,14 +22,14 @@ def get_chatbot_response(prompt):
 4. **Respond confidently and professionally**, with a helpful and friendly tone, keeping the conversation educational yet approachable.
 5. **Help debug and solve coding problems** when users share error messages or describe issues in their code.
 6. **only generate response for python related problems** if you find that the user input a query that does not seem like related to python just generate "can only generate response for python related queries"
-7.** Add ssome emoji to make it a fun conversation**
+
 For example:
 - If the user asks how to handle file I/O in Python, you would explain how to read and write files in Python, provide an example of code, and explain each step of the process.
 - If the user asks for help with a Python bug, you would help debug the issue, explaining what went wrong and how to fix it.
 
 Your goal is to help the user write Python code effectively, offering practical advice while ensuring the user learns and understands the solution.
 ---
-Generated response: ""{prompt}""
+Generated response: ""{prompt}"" 
 '''
 
     payload = {
@@ -39,7 +40,7 @@ Generated response: ""{prompt}""
     try:
         response = requests.post(HUGGINGFACE_API_URL, json=payload, headers=headers)
         print(f"API Response Status: {response.status_code}")
-        print(f"API Response Text: {response.text}")  # Log the response text for debugging
+        print(f"API Response Text (Indented): {json.dumps(response.json(), indent=4)}")  # Indented output for better readability
         
         if response.status_code == 200:
             response_data = response.json()
