@@ -1,7 +1,7 @@
 /* General styling */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #e0f7fa; /* Light blue background */
+    background-color: #11cde6; /* Light blue background */
     margin: 0;
     padding: 0;
 }
@@ -86,14 +86,31 @@ button:hover {
 }
 
 .clear-chat-btn:hover {
-    background-color: #e64a19; /* Darker orange on hover */
+    background-color: #b87966; /* Darker orange on hover */
 }
 
+/* New background styling for response section */
 .response {
     padding: 15px;
     margin-top: 20px;
-    background-color: #e0f7fa;
+    background-color: rgba(224, 247, 250, 0.6); /* Light blue background with 60% opacity */
     border-radius: 8px;
     border: 2px solid #004d40;
     font-family: monospace;
+    position: relative; /* Important for positioning the pseudo-element */
+    overflow: hidden; /* Ensures that content doesn't overflow the background */
+}
+
+.response::before {
+    content: "";
+    position: absolute; /* Make it span the entire element */
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 80%;
+    background-image: url('{{ url_for("static", filename="bg1.jfif") }}'); /* Corrected path */
+    background-size: cover;
+    background-position: center;
+    opacity: 10%; /* 60% opacity for the background image */
+    z-index: -1; /* Make sure the background is behind the text */
 }
