@@ -19,6 +19,6 @@ Response Handling: The API returns a generated response, which is then displayed
 ❌ Non-Python Queries: For any query that’s not related to Python, the chatbot will politely inform the user that it can only respond to Python-related inquiries.
 
 # Prerequisites:
-Python 3.x
+Python 3.12 or above
 Flask
 Hugging Face API Key (sign up at Hugging Face and get your API key).python
